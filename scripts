@@ -1,3 +1,0 @@
-@divinity.command()
-async def hi(ctx):
-    await ctx.send("Hello world!")
