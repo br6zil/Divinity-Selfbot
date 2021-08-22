@@ -48,7 +48,7 @@ async def tokeninfo(ctx, _token):
     nitro_type = "None"
     if "premium_type" in res:
         if res['premium_type'] == 2:
-            nitro_type = "Nitro Premium"
+            nitro_type = "Nitro"
         elif res['premium_type'] == 1:
             nitro_type = "Nitro Classic"
     fields = [
