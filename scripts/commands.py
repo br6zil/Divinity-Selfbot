@@ -426,3 +426,326 @@ async def feet(ctx):
         em.set_image(url=res['url'])
         await ctx.send(embed=em)
 
+@divinity.command(aliases=['geoip', 'ip'])
+async def ip2geo(ctx, *, ipaddr: str = '1.3.3.7'):
+    await ctx.message.delete()
+    r = requests.get(f'http://extreme-ip-lookup.com/json/{ipaddr}')
+    geo = r.json()
+    em = discord.Embed()
+    fields = [
+        {'name': 'IP', 'value': geo['query']},
+        {'name': 'Modelo', 'value': geo['ipType']},
+        {'name': 'País', 'value': geo['country']},
+        {'name': 'Cidade', 'value': geo['city']},
+        {'name': 'Continente', 'value': geo['continent']},
+        {'name': 'Hostname', 'value': geo['ipName']},
+        {'name': 'ISP', 'value': geo['isp']},
+        {'name': 'Org', 'value': geo['org']},
+        {'name': 'Região', 'value': geo['region']},
+    ]
+    for field in fields:
+        if field['value']:
+            em.add_field(name=field['name'], value=field['value'], inline=True)
+    return await ctx.send(embed=em)
+
+@divinity.command()
+async def hastebin(ctx, *, message):
+    await ctx.message.delete()
+    r = requests.post("https://hastebin.com/documents", data=message).json()
+    await ctx.send(f"<https://hastebin.com/{r['key']}>")
+
+@divinity.command()
+async def boobs(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/boobs")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_boobs.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def tits(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/tits")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_tits.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def blowjob(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/blowjob")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_blowjob.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def neko(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/nsfw_neko_gif")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_neko.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def lesbian(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/les")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_lesbian.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def cumslut(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/cum")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_cumslut.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def pussy(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/pussy")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_pussy.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def waifu(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/waifu")
+    res = r.json()
+    try:
+        async with aiohttp.divinitySession() as session:
+            async with session.get(res['url']) as resp:
+                image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file=discord.File(file, f"divinity_waifu.gif"))
+    except:
+        em = discord.Embed()
+        em.set_image(url=res['url'])
+        await ctx.send(embed=em)
+
+@divinity.command()
+async def sendall(ctx, *, message):
+    await ctx.message.delete()
+    try:
+        channels = ctx.guild.text_channels
+        for channel in channels:
+            await channel.send(message)
+    except:
+        pass
+
+@divinity.command()
+async def typing(ctx, seconds: int):
+    await ctx.message.delete()
+    try:
+        async with ctx.channel.typing():
+            await asyncio.sleep(seconds)
+    except Exception:
+        return
+
+@divinity.command()
+async def chatdump(ctx, amount_of_messages=50):
+        if amount_of_messages == 0:
+            await ctx.send("Please set message amount to at least 1.")
+        else:
+            try:
+                with open(f"./chat_history.txt", "w", encoding="utf-8") as f:
+                    messages = await ctx.channel.history(limit=amount_of_messages).flatten()
+
+                    lines = []
+                    for message in reversed(messages):
+                        if len(message.content) > 1:
+                            lines.append(f"[{datetime.now().strftime('%H:%M:%S')}] {message.author}: {message.content}\n")
+
+                        try:
+                            for attachment in message.attachments:
+                                lines.append(f"[{datetime.now().strftime('%H:%M:%S')}] {message.author}: {attachment.url}\n")
+                        except:
+                            pass
+
+                        try:
+                            for embed in message.embeds:
+                                embed_dict = embed.to_dict()
+                                lines.append(f"[{datetime.now().strftime('%H:%M:%S')}] {message.author}: {embed_dict}\n")
+                        except Exception as e:
+                            pass
+
+                    f.writelines(lines)
+            except Exception as e:
+                pass
+
+            await ctx.message.delete()
+            await ctx.send("Generated chat dump.", file=discord.File(f'./chat_history.txt'))
+            
+            os.remove('./chat_history.txt')
+
+@divinity.command()
+async def fakenitro(ctx, url: str):
+        
+        if url is not None:
+            letters_and_digits = string.ascii_letters + string.digits
+            fake_nitro_url = ''.join((random.choice(letters_and_digits) for i in range(16)))
+
+            embed= discord.Embed(color=0xFF7DE9, title=f'Successfully generated.', description=
+            f'''
+            Discord Nitro code generated successfully. Here is: 
+            **Code:** [https://discord.gift/{fake_nitro_url}]({url})
+            ''',)
+            embed.set_footer(text='Discord Administration Tool')
+            await ctx.message.delete()
+            await ctx.send(embed=embed)
+
+@divinity.command()
+async def purge(ctx, amount: int = None):
+    await ctx.message.delete()
+    if amount is None:
+        async for message in ctx.message.channel.history(limit=999).filter(lambda m: m.author == divinity.user).map(
+                lambda m: m):
+            try:
+                await message.delete()
+            except:
+                pass
+    else:
+        async for message in ctx.message.channel.history(limit=amount).filter(lambda m: m.author == divinity.user).map(
+                lambda m: m):
+            try:
+                await message.delete()
+            except:
+                pass
+
+@divinity.command()
+async def checktoken(ctx, token):
+    headers = {
+        'Authorization': token,
+        'Content-Type': 'application/json'
+    }
+    r = requests.get("https://discord.com/api/v8/users/@me/settings", headers=headers)
+    if r.status_code == 401:
+        print(f"{Fore.GREEN}[{Fore.MAGENTA}+{Fore.GREEN}] Invalid Token\n> {token}")
+        await ctx.message.delete()
+        sleep(6)
+        clear_console()
+    elif r.status_code == 200:
+        print(f"{Fore.GREEN}[{Fore.MAGENTA}+{Fore.GREEN}] Valid Token\n> {token}")
+        await ctx.message.delete()
+        sleep(6)
+        clear_console()
+
+@divinity.command()
+async def fakeurl(ctx, fake, real):
+    await ctx.message.delete()
+    await ctx.send(f"<https://{fake}>||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| {real}")
+
+@divinity.command()
+async def fakemsg(ctx, fake, real):
+    await ctx.message.delete()
+    await ctx.send(f"{fake}||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| {real}")
+
+@divinity.command()
+async def spamchannels(ctx, name):
+    await ctx.message.delete()
+    for _i in range(250):
+        try:
+            await ctx.guild.create_text_channel(name=f"{name}")
+        except:
+            return
+
+@divinity.command()
+async def spamroles(ctx, name):
+    await ctx.message.delete()
+    for _i in range(250):
+        try:
+            await ctx.guild.create_role(name="/divinity", color=RandomColor(), permissions=Permissions.all())
+        except:
+            try:
+                await ctx.guild.create_role(name="/divinity", color=RandomColor())
+            except:
+                return
+
+@divinity.command()
+async def delchannels(ctx):
+    await ctx.message.delete()
+    for channel in list(ctx.guild.channels):
+        try:
+            await channel.delete()
+        except:
+            return
+
+@divinity.command()
+async def delroles(ctx):
+    await ctx.message.delete()
+    for role in list(ctx.guild.roles):
+        try:
+            await role.delete()
+        except:
+            pass
+
+@divinity.command(aliases=["rc"])
+async def renamechannels(ctx, *, name):
+    await ctx.message.delete()
+    for channel in ctx.guild.channels:
+        await channel.edit(name=name)
+
+@divinity.command()
+async def spam(ctx, amount: int, *, message):
+    await ctx.message.delete()    
+    for _i in range(amount):
+        await ctx.send(message)
