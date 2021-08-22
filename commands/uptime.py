@@ -1,14 +1,14 @@
-@divinity .command ()
-async def uptime (O000OOOOOOO00OO0O ):
-    await O000OOOOOOO00OO0O .message .delete ()
-    OO00000O0OOO0OO0O =datetime .utcnow ()
-    OOO00000OOOO00OO0 =OO00000O0OOO0OO0O -start_time 
-    O0O00OOO0O00OOO0O ,OOOO0OOO0OOO0O00O =divmod (int (OOO00000OOOO00OO0 .total_seconds ()),3600 )
-    O00O00O000O00O00O ,OOO0OO00OO00000OO =divmod (OOOO0OOO0OOO0O00O ,60 )
-    OOO000OOO0O00OOO0 ,O0O00OOO0O00OOO0O =divmod (O0O00OOO0O00OOO0O ,24 )
-    if OOO000OOO0O00OOO0 :
-        OO000OOO0O00O000O ="{d} days, {h} hours, {m} minutes, and {s} seconds."
-    else :
-        OO000OOO0O00O000O ="{h} hours, {m} minutes, and {s} seconds."
-    O000000000O0OOO0O =OO000OOO0O00O000O .format (d =OOO000OOO0O00OOO0 ,h =O0O00OOO0O00OOO0O ,m =O00O00O000O00O00O ,s =OOO0OO00OO00000OO )
-    await O000OOOOOOO00OO0O .send (O000000000O0OOO0O )
+@divinity.command()
+async def uptime(ctx):
+    await ctx.message.delete()
+    now = datetime.utcnow()
+    delta = now - start_time
+    hours, remainder = divmod(int(delta.total_seconds()), 3600)
+    minutes, seconds = divmod(remainder, 60)
+    days, hours = divmod(hours, 24)
+    if days:
+        time_format = "{d} days, {h} hours, {m} minutes, and {s} seconds."
+    else:
+        time_format = "{h} hours, {m} minutes, and {s} seconds."
+    uptime_stamp = time_format.format(d=days, h=hours, m=minutes, s=seconds)
+    await ctx.send(uptime_stamp)
