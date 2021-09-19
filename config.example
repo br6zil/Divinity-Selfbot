@@ -1,0 +1,6 @@
+{
+  "token": "token-here",
+  "password": "",
+  "prefix": "prefix-here",
+  "audit_log": "true"
+}
